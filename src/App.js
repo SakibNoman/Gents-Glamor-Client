@@ -11,6 +11,10 @@ function App() {
   return (
     <Router >
       <Switch>
+
+        <Route path="/admin/:category" >
+          <Admin></Admin>
+        </Route>
         <Route path="/admin" >
           <Admin></Admin>
         </Route>
