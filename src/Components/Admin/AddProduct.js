@@ -1,17 +1,37 @@
 import React, { useState } from 'react';
 import { Navbar } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Admin.css';
+
+toast.configure();
 
 const AddProduct = () => {
     const { register, handleSubmit, errors } = useForm();
     const [imageUrl, setImageUrl] = useState('');
+    const notify = () => {
+        toast('Product uploaded successfully')
+    }
     const onSubmit = data => {
         const eventValue = {
             productName: data.productName,
             productPrice: data.productPrice,
             productImage: imageUrl
         }
+
+        const url = 'http://localhost:8080/addProduct';
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(eventValue)
+        })
+            .then(res => {
+                notify();
+            })
     };
 
     const handleImage = (e) => {
