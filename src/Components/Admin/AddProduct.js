@@ -5,9 +5,29 @@ import './Admin.css';
 
 const AddProduct = () => {
     const { register, handleSubmit, errors } = useForm();
-    const [newProduct, setNewProduct] = useState({});
-    const onSubmit = data => setNewProduct(data);
-    console.log(newProduct);
+    const [imageUrl, setImageUrl] = useState('');
+    const onSubmit = data => {
+        const eventValue = {
+            productName: data.productName,
+            productPrice: data.productPrice,
+            productImage: imageUrl
+        }
+    };
+
+    const handleImage = (e) => {
+        const files = e.target.files[0];
+        const imageData = new FormData();
+        imageData.set('key', 'd31833276d6f7b577c800fa621a054fd');
+        imageData.append('image', files);
+
+        fetch('https://api.imgbb.com/1/upload', {
+            method: "POST",
+            body: imageData
+        })
+            .then(res => res.json())
+            .then(data => setImageUrl(data.data.display_url))
+    }
+
     return (
         <div>
             <Navbar bg="light">
@@ -29,7 +49,7 @@ const AddProduct = () => {
                             </div>
                             <div className="col-6">
                                 <label className="d-block" >Add Product Image</label>
-                                <input type="file" name="productImage" id="" />
+                                <input onChange={handleImage} type="file" name="productImage" id="" />
                             </div>
                             <div className="col-6">
                                 <input className="btn btn-dark" type="submit" />
