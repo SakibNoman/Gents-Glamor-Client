@@ -6,6 +6,7 @@ import Admin from "./Components/Admin/Admin";
 import Error from "./Components/Error/Error";
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
+import Login from "./Components/Login/Login";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
         <Route path="/home" >
           <Header></Header>
           <Home></Home>
+        </Route>
+        <Route path="/login" >
+          <Header></Header>
+          <Login></Login>
         </Route>
         <Route exact path="/" >
           <Header></Header>

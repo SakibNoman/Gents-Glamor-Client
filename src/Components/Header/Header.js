@@ -20,7 +20,8 @@ const Header = () => {
                             <Nav.Link as={Link} to="/orders" className="ml-3">Orders</Nav.Link>
                             <Nav.Link as={Link} to="/admin" className="ml-3">Admin</Nav.Link>
                             <Nav.Link className="ml-3">Deals</Nav.Link>
-                            <button className="btn btn-sm btn-dark ml-3" >Login</button>
+                            <Link to="/login" className="btn btn-dark ml-3" >Login</Link>
+
                         </Nav>
                     </Navbar.Collapse>
                 </div>
