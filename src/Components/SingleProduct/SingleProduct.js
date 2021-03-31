@@ -1,5 +1,5 @@
 import React from 'react';
-import imageUrl from '../../images/Atar.jpg';
+import imageUrl from '../../images/Degree.jpg';
 import './SingleProduct.css';
 
 const SingleProduct = (props) => {
