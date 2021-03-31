@@ -18,3 +18,7 @@
 .dash-nav:hover {
   text-decoration: none;
 }
+.add-product-body {
+  background-color: #f4f7fc;
+  height: 80vh;
+}
