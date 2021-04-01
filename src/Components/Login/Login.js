@@ -1,10 +1,39 @@
-import React from 'react';
+import firebase from "firebase/app";
+import "firebase/auth";
+import React, { useContext } from 'react';
+import { UserContext } from "../../App";
 import googleIcon from '../../images/icons/googleIcon.png';
+import firebaseConfig from './firebase.config';
 
 const Login = () => {
 
+    const [userInfo, setUserInfo] = useContext(UserContext);
+
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app();
+    }
+
+    const provider = new firebase.auth.GoogleAuthProvider();
+
     const handleLogin = () => {
-        console.log("Clicked");
+        firebase.auth().signInWithPopup(provider)
+            .then((result) => {
+                const { photoURL, email, displayName } = result.user;
+                const newUserInfo = { ...userInfo }
+                newUserInfo.email = email;
+                newUserInfo.image = photoURL;
+                newUserInfo.name = displayName;
+                newUserInfo.isSignedIn = true;
+                setUserInfo(newUserInfo);
+            }).catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                var email = error.email;
+                var credential = error.credential;
+            });
     }
 
 

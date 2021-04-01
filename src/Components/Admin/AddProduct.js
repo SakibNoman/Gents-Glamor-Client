@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Navbar } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import './Admin.css';
 
 toast.configure();

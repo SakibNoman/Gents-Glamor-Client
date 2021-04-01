@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import logo from '../../images/icons/logo2.png';
 import './Header.css';
 
 const Header = () => {
+
+    const [{ isSignedIn, image }] = useContext(UserContext);
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -20,7 +23,11 @@ const Header = () => {
                             <Nav.Link as={Link} to="/orders" className="ml-3">Orders</Nav.Link>
                             <Nav.Link as={Link} to="/admin" className="ml-3">Admin</Nav.Link>
                             <Nav.Link className="ml-3">Deals</Nav.Link>
-                            <Link to="/login" className="btn btn-dark ml-3" >Login</Link>
+                            {
+                                !isSignedIn && <Link to="/login" className="btn btn-dark ml-3" >Login
+                               </Link>
+                            }
+                            {isSignedIn && <img className="ml-3" style={{ borderRadius: "50%" }} height="35px" width="35px" src={image} alt="" />}
 
                         </Nav>
                     </Navbar.Collapse>
