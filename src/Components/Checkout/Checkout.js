@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import moment from 'moment';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
+import { UserContext } from '../../App';
 
 const Checkout = () => {
 
     const { productId } = useParams();
     const [product, setProduct] = useState({});
+    const { productName, productPrice, productImage } = product;
+    const [{ email }] = useContext(UserContext);
+
 
     useEffect(() => {
         fetch(`http://localhost:8080/product/${productId}`)
@@ -14,16 +19,14 @@ const Checkout = () => {
             .then(data => setProduct(data[0]))
     }, [productId])
 
-    const notify = () => {
-        toast('Order completed')
-    }
 
     const handleCheckout = () => {
         const orderData = {
-            productName: product.productName,
-            productPrice: product.productPrice,
-            email: '',
-            orderDate: new Date()
+            productName: productName,
+            productPrice: productPrice,
+            email: email,
+            productImage: productImage,
+            orderDate: moment().format('MMMM Do YYYY, h:mm:ss a')
         }
 
         const url = 'http://localhost:8080/addOrder';
@@ -36,7 +39,7 @@ const Checkout = () => {
             body: JSON.stringify(orderData)
         })
             .then(res => {
-                notify();
+                toast('Order completed')
             })
             .catch(err => {
                 console.log(err);
@@ -56,14 +59,14 @@ const Checkout = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{product.productName}</td>
+                        <td>{productName}</td>
                         <td>1</td>
-                        <td>{"$ " + product.productPrice}</td>
+                        <td>{"$ " + productPrice}</td>
                     </tr>
                     <tr>
                         <td>Total</td>
                         <td></td>
-                        <td>{"$ " + product.productPrice}</td>
+                        <td>{"$ " + productPrice}</td>
                     </tr>
 
                 </tbody>
