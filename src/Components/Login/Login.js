@@ -1,6 +1,8 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import React, { useContext } from 'react';
+import { useHistory, useLocation } from "react-router";
+import { toast } from "react-toastify";
 import { UserContext } from "../../App";
 import googleIcon from '../../images/icons/googleIcon.png';
 import firebaseConfig from './firebase.config';
@@ -8,6 +10,9 @@ import firebaseConfig from './firebase.config';
 const Login = () => {
 
     const [userInfo, setUserInfo] = useContext(UserContext);
+    const history = useHistory()
+    const location = useLocation()
+    const { from } = location.state || { from: { pathname: "/" } };
 
 
     if (!firebase.apps.length) {
@@ -28,6 +33,8 @@ const Login = () => {
                 newUserInfo.name = displayName;
                 newUserInfo.isSignedIn = true;
                 setUserInfo(newUserInfo);
+                toast(`Welcome ${displayName}`)
+                history.replace(from)
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;

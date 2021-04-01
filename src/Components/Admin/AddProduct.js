@@ -9,9 +9,6 @@ toast.configure();
 const AddProduct = () => {
     const { register, handleSubmit, errors } = useForm();
     const [imageUrl, setImageUrl] = useState('');
-    const notify = () => {
-        toast('Product uploaded successfully')
-    }
     const onSubmit = data => {
         const eventValue = {
             productName: data.productName,
@@ -29,7 +26,7 @@ const AddProduct = () => {
             body: JSON.stringify(eventValue)
         })
             .then(res => {
-                notify();
+                toast('Product uploaded successfully');
             })
     };
 
