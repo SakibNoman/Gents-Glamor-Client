@@ -16,7 +16,7 @@ const AddProduct = () => {
             productImage: imageUrl
         }
 
-        const url = 'http://localhost:8080/addProduct';
+        const url = 'https://glacial-harbor-76605.herokuapp.com/addProduct';
 
         fetch(url, {
             method: "POST",

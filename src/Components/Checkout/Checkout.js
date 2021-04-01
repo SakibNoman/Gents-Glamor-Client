@@ -14,7 +14,7 @@ const Checkout = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:8080/product/${productId}`)
+        fetch(`https://glacial-harbor-76605.herokuapp.com/product/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data[0]))
     }, [productId])
@@ -29,7 +29,7 @@ const Checkout = () => {
             orderDate: moment().format('MMMM Do YYYY, h:mm:ss a')
         }
 
-        const url = 'http://localhost:8080/addOrder';
+        const url = 'https://glacial-harbor-76605.herokuapp.com/addOrder';
 
         fetch(url, {
             method: "POST",

@@ -9,7 +9,7 @@ const ManageProduct = () => {
     const [spinner, setSpinner] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:8080/products')
+        fetch('https://glacial-harbor-76605.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -18,7 +18,7 @@ const ManageProduct = () => {
     }, [products])
 
     const handleDelete = id => {
-        fetch(`http://localhost:8080/deleteProduct/${id}`, {
+        fetch(`https://glacial-harbor-76605.herokuapp.com/deleteProduct/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

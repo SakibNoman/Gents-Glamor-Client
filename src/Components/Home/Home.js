@@ -8,7 +8,7 @@ const Home = () => {
     const [spinner, setSpinner] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:8080/products')
+        fetch('https://glacial-harbor-76605.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);

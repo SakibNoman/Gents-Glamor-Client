@@ -6,7 +6,7 @@ const Orders = () => {
     const [products, setProducts] = useState([]);
     const [{ email }] = useContext(UserContext)
     useEffect(() => {
-        fetch(`http://localhost:8080/customer/order?email=` + email)
+        fetch(`https://glacial-harbor-76605.herokuapp.com/customer/order?email=` + email)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [email])
