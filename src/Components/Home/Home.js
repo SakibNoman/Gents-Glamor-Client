@@ -4,9 +4,13 @@ import SingleProduct from '../SingleProduct/SingleProduct';
 
 const Home = () => {
 
+    //useState hook to keep all products array
     const [products, setProducts] = useState([]);
+
+    //spinner showing option
     const [spinner, setSpinner] = useState(true);
 
+    //loading data
     useEffect(() => {
         fetch('https://glacial-harbor-76605.herokuapp.com/products')
             .then(res => res.json())

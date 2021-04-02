@@ -7,7 +7,9 @@ import './Header.css';
 
 const Header = () => {
 
+    //destructuring if user signed in and taking profile image
     const [{ isSignedIn, image }] = useContext(UserContext);
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">

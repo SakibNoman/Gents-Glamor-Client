@@ -8,16 +8,15 @@ import Sidebar from './Sidebar';
 
 const Admin = () => {
 
+    //getting dynamic parameter
     const { category } = useParams();
-    console.log(category);
 
     return (
-
         <div className="row mx-0">
             <div className="col-2 bg-info side-bar p-0 " >
                 <Sidebar></Sidebar>
             </div>
-            <div style={{ marginLeft: "220px" }} className="col-10">
+            <div style={{ marginLeft: "220px" }} className="col-10 px-0">
                 {
                     category === "manage-products" ? <ManageProduct></ManageProduct> : <AddProduct></AddProduct>
                 }

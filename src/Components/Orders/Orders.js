@@ -3,14 +3,20 @@ import { Container, Table } from 'react-bootstrap';
 import { UserContext } from '../../App';
 
 const Orders = () => {
+
+    //useState hook to keep products array
     const [products, setProducts] = useState([]);
+
+    //destructuring email from context
     const [{ email }] = useContext(UserContext)
+
+    //load logged in user data
     useEffect(() => {
         fetch(`https://glacial-harbor-76605.herokuapp.com/customer/order?email=` + email)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [email])
-    console.log(products);
+
     return (
         <Container>
             <Table hover bordered className="mt-5" >

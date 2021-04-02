@@ -9,12 +9,15 @@ import firebaseConfig from './firebase.config';
 
 const Login = () => {
 
+    //useContext hook
     const [userInfo, setUserInfo] = useContext(UserContext);
+
+    //for redirect option
     const history = useHistory()
     const location = useLocation()
     const { from } = location.state || { from: { pathname: "/" } };
 
-
+    //firebase option
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     } else {

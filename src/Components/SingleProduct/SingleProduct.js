@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import './SingleProduct.css';
 
 const SingleProduct = (props) => {
+
+    //destructuring product info from props
     const { productName, productPrice, productImage, _id } = props.item;
 
     return (
-
         <div className="d-flex  flex-column single-card">
             <div className="card-image flex-grow-5 text-center" >
                 <img src={productImage} alt="" />

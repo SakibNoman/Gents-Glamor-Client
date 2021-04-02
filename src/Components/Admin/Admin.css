@@ -1,5 +1,5 @@
+/* Side bar design */
 .side-bar {
-  /* height: 100vh; */
   height: 100%;
   width: 220px;
   position: fixed;
@@ -27,7 +27,12 @@
 .dash-nav:hover {
   text-decoration: none;
 }
+
+/* add product form design */
 .add-product-body {
   background-color: #f4f7fc;
   height: 80vh;
+}
+.add-option {
+  padding: 15px;
 }
