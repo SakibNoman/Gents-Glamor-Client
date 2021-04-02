@@ -17,7 +17,7 @@ const Admin = () => {
             <div className="col-2 bg-info side-bar p-0 " >
                 <Sidebar></Sidebar>
             </div>
-            <div className="col-10">
+            <div style={{ marginLeft: "220px" }} className="col-10">
                 {
                     category === "manage-products" ? <ManageProduct></ManageProduct> : <AddProduct></AddProduct>
                 }

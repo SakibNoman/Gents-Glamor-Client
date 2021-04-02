@@ -1,5 +1,14 @@
 .side-bar {
-  height: 100vh;
+  /* height: 100vh; */
+  height: 100%;
+  width: 220px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 .side-link :hover {
   background-color: #3db5c7;
