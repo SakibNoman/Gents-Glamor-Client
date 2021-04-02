@@ -46,7 +46,7 @@ const Login = () => {
             <div onClick={() => handleLogin()} style={{ cursor: "pointer" }} className="rounded-pill bg-dark p-2 text-white">
                 <div style={{ width: "300px" }} className="d-flex justify-content-between align-align-items-center p-2">
                     <img style={{ width: "25px " }} src={googleIcon} alt="" />
-                    <h6>Login with Google</h6>
+                    <h6 className="mx-auto position-absolute" style={{ left: "0", right: "0", textAlign: "center" }} >Login with Google</h6>
                 </div>
             </div>
         </div>
