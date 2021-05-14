@@ -9,7 +9,7 @@ const SingleProduct = (props) => {
     const { productName, productPrice, productImage, _id } = props.item;
 
     return (
-        <div className="d-flex col-md-2 col-sm-3 col-4  flex-column single-card">
+        <div className="d-flex col-md-2 col-sm-3 col-4  flex-column m-md-3 m-1 single-card">
             <div className="card-image flex-grow-5 text-center" >
                 <img src={productImage} alt="" />
             </div>

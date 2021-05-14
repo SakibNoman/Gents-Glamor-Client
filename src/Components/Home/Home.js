@@ -22,7 +22,7 @@ const Home = () => {
 
     return (
         <div className="d-flex container justify-content-center" >
-            <div className="row justify-content-center mx-0 my-5" >
+            <div className="row justify-content-around my-5" >
                 {spinner && <Spinner animation="grow" />}
                 {
                     products.map(each => <SingleProduct key={each._id} item={each} ></SingleProduct>)
